@@ -1,0 +1,12 @@
+html {
+	background: url("http://s1.picswalls.com/thumbs2/2014/04/19/sea-pirate-background_123241584_36.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body {
+	color: white;
+
+}

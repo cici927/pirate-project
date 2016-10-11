@@ -1,3 +1,5 @@
+//PULL 1
+
 //Step 1a -- define (global) Bartender constructor function 
 
 //create bartender object, flavarr argument represents the preferences argument collected from line 101
@@ -21,10 +23,27 @@ var Bartender = function(flavarr) {
 
 //Step 2-- Extend Bartender constructor function with printDrink method to print out 1 random ingredient from all true selections
 Bartender.prototype.printDrink = function() {
-        console.log(this.finalDrink);
         
+        //you can access arrays throught front *and* back (i.e. -2)
+        this.finalDrink.splice(-1, 0, " and");
+        var str = this.finalDrink.join(",");
+        
+        //var index = str.lastIndexOf(",");
+        // str = str.substring(0, index) + str.substring(index + 1);
+        // console.log("first", str)
+        // var index2 = str.lastIndexOf(",");
+        // str = str.substring(0, index2) + str.substring(index2 + 1);
+        //str = str.replace(/,(?=[^,]*$)/, '');
+        //console.log("second", str);
+
+        var removeComma = function(str2) {
+            var index = str2.lastIndexOf(",");
+            return str2.substring(0, index) + str2.substring(index + 1);
+        }
+        console.log("function", removeComma(removeComma(str)))
             //ask about how to separate and add conjunctions to finalDrink? (i.e. "*and* Cherry on top")
-        $('.drink-results').append('<h2>' + "Yer drink will have " + this.finalDrink + '</h2>');
+        
+        $('.drink-results').append('<h2>' + "Yer drink will have " + str + '</h2>');
    
 }
 
@@ -44,11 +63,11 @@ var questions = [
 ]
 
 var ingredients = {
-    strong: ['Glug of rum ', 'Slug of whisky ', 'Splash of gin '],
-    bitter: ['Shake of bitters ', 'Splash of tonic ', 'Twist of lemon peel '],
-    salty: ['Olive on a stick ', 'Salt-dusted rim ', 'Rasher of bacon '],
-    sweet: ['Sugar cube ', 'Spoonful of honey ', 'Splash of cola '],
-    fruity: ['Slice of orange ', 'Dash of cassis ', 'Cherry on top ']
+    strong: [' Glug of rum', ' Slug of whisky', ' Splash of gin'],
+    bitter: [' Shake of bitters', ' Splash of tonic', ' Twist of lemon peel'],
+    salty: [' Olive on a stick', ' Salt-dusted rim', ' Rasher of bacon'],
+    sweet: [' Sugar cube', ' Spoonful of honey', ' Splash of cola'],
+    fruity: [' Slice of orange', ' Dash of cassis', ' Cherry on top']
 }
 
 
